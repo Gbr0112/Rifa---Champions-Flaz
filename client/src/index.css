@@ -63,6 +63,14 @@
     @apply font-sans antialiased;
     font-family: 'Inter', sans-serif;
   }
+  
+  .font-orbitron {
+    font-family: 'Orbitron', monospace;
+  }
+  
+  .font-exo {
+    font-family: 'Exo 2', sans-serif;
+  }
 }
 
 @layer components {

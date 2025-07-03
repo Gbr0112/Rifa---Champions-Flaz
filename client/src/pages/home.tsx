@@ -7,13 +7,14 @@ import { FloatingParticles } from "@/components/ui/floating-particles";
 import { ChampionsTrophy } from "@/components/ui/champions-trophy";
 import { PrizeCard } from "@/components/ui/prize-card";
 import { useToast } from "@/hooks/use-toast";
+import iphoneImage from "@assets/Imagem do WhatsApp de 2025-07-03 à(s) 18.04.27_7b07bfe2_1751579845431.jpg";
 
 export default function Home() {
   const [nome, setNome] = useState("");
   const [telefone, setTelefone] = useState("");
   const [showPix, setShowPix] = useState(false);
   const [paymentConfirmed, setPaymentConfirmed] = useState(false);
-  const [prizeImage, setPrizeImage] = useState("https://images.unsplash.com/photo-1695048133142-1a20484d2569?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=500");
+  const [prizeImage, setPrizeImage] = useState(iphoneImage);
   const [prizeImageError, setPrizeImageError] = useState(false);
   const { toast } = useToast();
 
@@ -117,18 +118,24 @@ export default function Home() {
 
           {/* Main Title with Enhanced Styling */}
           <div className="relative mb-6">
-            <h1 className="text-6xl md:text-8xl font-black text-gradient-gold mb-2 tracking-tight relative z-10">
+            <h1 className="text-6xl md:text-8xl font-black text-gradient-gold mb-2 tracking-tight relative z-10 font-orbitron">
               RIFA
             </h1>
-            <div className="text-4xl md:text-6xl font-bold text-white mb-4 relative z-10">
+            <div className="text-4xl md:text-6xl font-bold text-white mb-4 relative z-10 font-exo">
               <span className="text-gradient-gold">CHAMPIONS</span> <span className="text-red-500">FLA</span>
             </div>
-            <div className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4">
+            <div className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4 font-orbitron tracking-widest">
               2025
             </div>
             
-            {/* Glowing Background Effect */}
+            {/* Enhanced Glowing Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-red-500/20 to-yellow-400/20 blur-3xl animate-pulse"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-yellow-300/10 via-transparent to-red-400/10 blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+            
+            {/* Sparkle Effects */}
+            <div className="absolute top-0 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-70" style={{animationDelay: '0.5s'}}></div>
+            <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-pulse opacity-80" style={{animationDelay: '1.5s'}}></div>
+            <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse opacity-60" style={{animationDelay: '2s'}}></div>
           </div>
 
           {/* Subtitle */}
@@ -183,41 +190,19 @@ export default function Home() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 px-4">
-            {/* 1º Lugar com Imagem do iPhone */}
-            <div className="relative">
-              <PrizeCard
-                icon={<i className="fas fa-trophy text-2xl text-black"></i>}
-                title="1º LUGAR"
-                description={
-                  <div>
-                    <p className="font-semibold mb-2">iPhone 15 (128GB)</p>
-                    <p className="text-gray-300">ou</p>
-                    <p className="text-yellow-400 font-bold text-lg">R$ 3.000,00 no PIX</p>
-                  </div>
-                }
-                iconBg="bg-gradient-to-r from-yellow-400 to-yellow-600"
-                titleColor="text-yellow-400"
-              />
-              
-              {/* Imagem do iPhone próxima ao 1º lugar */}
-              <div className="absolute -top-4 -right-4 z-10">
-                <div className="relative">
-                  {!prizeImageError ? (
-                    <img
-                      src={prizeImage}
-                      alt="iPhone 15 - Prêmio Principal"
-                      className="w-24 h-32 object-cover rounded-xl shadow-2xl animate-float border-2 border-yellow-400"
-                      onError={handlePrizeImageError}
-                    />
-                  ) : (
-                    <div className="w-24 h-32 bg-gradient-gold rounded-xl shadow-2xl animate-float flex items-center justify-center border-2 border-yellow-400">
-                      <i className="fas fa-mobile-alt text-2xl text-black"></i>
-                    </div>
-                  )}
-                  <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-transparent rounded-xl opacity-30 animate-pulse"></div>
+            <PrizeCard
+              icon={<i className="fas fa-trophy text-2xl text-black"></i>}
+              title="1º LUGAR"
+              description={
+                <div>
+                  <p className="font-semibold mb-2">iPhone 15 (128GB)</p>
+                  <p className="text-gray-300">ou</p>
+                  <p className="text-yellow-400 font-bold text-lg">R$ 3.000,00 no PIX</p>
                 </div>
-              </div>
-            </div>
+              }
+              iconBg="bg-gradient-to-r from-yellow-400 to-yellow-600"
+              titleColor="text-yellow-400"
+            />
 
             <PrizeCard
               icon={<i className="fas fa-medal text-2xl text-white"></i>}
@@ -294,9 +279,9 @@ export default function Home() {
               Participe Agora!
             </h3>
 
-            <div className="max-w-2xl mx-auto">
+            <div className="flex flex-col lg:flex-row gap-8 items-center">
               {/* Form Section */}
-              <div className="glass-effect rounded-2xl p-8 w-full border-white/20">
+              <div className="flex-1 glass-effect rounded-2xl p-8 w-full border-white/20">
                 <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); finalizarViaWhatsApp(); }}>
                   <div>
                     <Label className="text-gray-300 text-sm font-medium mb-2 flex items-center">
@@ -382,6 +367,25 @@ export default function Home() {
                     <i className="fab fa-whatsapp mr-2"></i>Finalizar via WhatsApp
                   </Button>
                 </form>
+              </div>
+
+              {/* Prize Image */}
+              <div className="flex-shrink-0">
+                <div className="relative">
+                  {!prizeImageError ? (
+                    <img
+                      src={prizeImage}
+                      alt="iPhone 15 - Prêmio Principal"
+                      className="w-64 h-80 object-cover rounded-2xl shadow-2xl animate-float"
+                      onError={handlePrizeImageError}
+                    />
+                  ) : (
+                    <div className="w-64 h-80 bg-gradient-gold rounded-2xl shadow-2xl animate-float flex items-center justify-center">
+                      <i className="fas fa-mobile-alt text-6xl text-black"></i>
+                    </div>
+                  )}
+                  <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-transparent rounded-2xl opacity-30 animate-pulse"></div>
+                </div>
               </div>
             </div>
           </div>
