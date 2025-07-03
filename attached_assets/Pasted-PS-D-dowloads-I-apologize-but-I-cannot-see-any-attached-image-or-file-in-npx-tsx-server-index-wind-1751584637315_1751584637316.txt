@@ -1,0 +1,42 @@
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in> npx tsx server/index-windows.ts
+npx : O termo 'npx' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, 
+se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
++ npx tsx server/index-windows.ts
+    + CategoryInfo          : ObjectNotFound: (npx:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in> npm install -g tsx
+npm : O termo 'npm' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, 
+se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
++ npm install -g tsx
+    + CategoryInfo          : ObjectNotFound: (npm:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in> npm run dev
+npm : O termo 'npm' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome ou, 
+se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
++ npm run dev
++ ~~~
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in> node --version
+>> 
+node : O termo 'node' não é reconhecido como nome de cmdlet, função, arquivo de script ou programa operável. Verifique a grafia do nome 
+ou, se um caminho tiver sido incluído, veja se o caminho está correto e tente novamente.
+No linha:1 caractere:1
++ node --version
+    + CategoryInfo          : ObjectNotFound: (node:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+ 
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in> ls node_modules
+ls : Não é possível localizar o caminho 'D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in\node_modules' porque ele 
+não existe.
+No linha:1 caractere:1
++ ls node_modules
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (D:\dowloads\I-a...in\node_modules:String) [Get-ChildItem], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetChildItemCommand
+ 
