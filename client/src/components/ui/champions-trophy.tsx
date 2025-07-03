@@ -10,16 +10,20 @@ export function ChampionsTrophy() {
   return (
     <div className="relative inline-block mb-8">
       <div className="animate-trophy-glow">
-        <div className="w-48 h-64 mx-auto rounded-3xl shadow-2xl animate-float relative overflow-hidden border-4 border-yellow-400 bg-gradient-to-b from-yellow-100/20 via-yellow-200/30 to-yellow-300/40">
+        <div className="w-48 h-64 mx-auto shadow-2xl animate-float relative">
           {!imageError ? (
             <img
               src="https://cdn.pixabay.com/photo/2018/06/12/13/55/trophy-3470654_1280.jpg"
               alt="Champions League Trophy"
-              className="w-full h-full object-contain rounded-2xl"
+              className="w-full h-full object-contain drop-shadow-2xl"
+              style={{
+                filter: 'brightness(1.2) contrast(1.1) saturate(1.2)',
+                mixBlendMode: 'screen'
+              }}
               onError={handleImageError}
             />
           ) : (
-            <div className="w-full h-full bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-600 rounded-2xl flex items-center justify-center">
+            <div className="w-full h-full flex items-center justify-center">
               {/* Ultra Realistic Champions League Trophy SVG */}
               <svg 
                 className="w-32 h-48 text-gray-800" 
