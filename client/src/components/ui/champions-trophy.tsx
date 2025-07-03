@@ -2,69 +2,90 @@ export function ChampionsTrophy() {
   return (
     <div className="relative inline-block mb-8">
       <div className="animate-trophy-glow">
-        <div className="w-40 h-56 mx-auto bg-gradient-gold rounded-2xl shadow-2xl animate-float flex items-center justify-center relative overflow-hidden border-4 border-yellow-300">
-          {/* Champions League Trophy SVG */}
+        <div className="w-48 h-64 mx-auto bg-gradient-to-b from-yellow-100 via-yellow-300 to-yellow-600 rounded-3xl shadow-2xl animate-float flex items-center justify-center relative overflow-hidden border-4 border-yellow-400">
+          {/* Ultra Realistic Champions League Trophy SVG */}
           <svg 
-            className="w-24 h-36 text-gray-800" 
-            viewBox="0 0 100 120" 
+            className="w-32 h-48 text-gray-800" 
+            viewBox="0 0 120 160" 
             fill="currentColor"
           >
-            {/* Trophy Base - Multiple Layers */}
-            <ellipse cx="50" cy="110" rx="20" ry="4" fill="#8B4513" />
-            <rect x="30" y="106" width="40" height="8" rx="2" fill="#CD853F" />
-            <rect x="35" y="102" width="30" height="6" rx="1" fill="#DAA520" />
+            {/* Trophy Base - Multiple Detailed Layers */}
+            <ellipse cx="60" cy="150" rx="28" ry="6" fill="#654321" />
+            <rect x="32" y="146" width="56" height="10" rx="3" fill="#8B4513" />
+            <rect x="36" y="142" width="48" height="8" rx="2" fill="#CD853F" />
+            <rect x="40" y="138" width="40" height="6" rx="1" fill="#DAA520" />
+            <rect x="44" y="134" width="32" height="6" rx="1" fill="#FFD700" />
             
-            {/* Trophy Stem */}
-            <rect x="48" y="85" width="4" height="17" fill="#8B4513" />
-            <rect x="46" y="88" width="8" height="2" rx="1" fill="#CD853F" />
+            {/* Trophy Stem with Details */}
+            <rect x="57" y="110" width="6" height="24" fill="#8B4513" />
+            <rect x="55" y="115" width="10" height="3" rx="1" fill="#CD853F" />
+            <rect x="55" y="125" width="10" height="3" rx="1" fill="#CD853F" />
             
-            {/* Main Trophy Bowl */}
-            <path d="M25 25 Q25 15 35 15 L65 15 Q75 15 75 25 L75 70 Q75 80 65 80 L35 80 Q25 80 25 70 Z" fill="#FFD700" />
+            {/* Main Trophy Bowl - More Realistic Shape */}
+            <path d="M30 30 Q30 18 42 18 L78 18 Q90 18 90 30 L90 85 Q90 95 78 95 L42 95 Q30 95 30 85 Z" fill="#FFD700" />
             
-            {/* Trophy Bowl Inner Shadow */}
-            <path d="M30 25 Q30 20 35 20 L65 20 Q70 20 70 25 L70 70 Q70 75 65 75 L35 75 Q30 75 30 70 Z" fill="#FFA500" />
+            {/* Trophy Bowl Inner Gradient */}
+            <path d="M35 30 Q35 23 42 23 L78 23 Q85 23 85 30 L85 85 Q85 90 78 90 L42 90 Q35 90 35 85 Z" fill="#FFA500" />
+            <path d="M40 30 Q40 26 42 26 L78 26 Q80 26 80 30 L80 85 Q80 87 78 87 L42 87 Q40 87 40 85 Z" fill="#FFB84D" />
             
-            {/* Trophy Handles */}
-            <path d="M20 35 Q12 35 12 42 Q12 48 20 48 L25 48 L25 35 Z" fill="#DAA520" />
-            <path d="M80 35 Q88 35 88 42 Q88 48 80 48 L75 48 L75 35 Z" fill="#DAA520" />
+            {/* Trophy Handles - More Elegant */}
+            <path d="M25 45 Q15 45 15 55 Q15 65 25 65 L30 65 L30 45 Z" fill="#DAA520" />
+            <path d="M95 45 Q105 45 105 55 Q105 65 95 65 L90 65 L90 45 Z" fill="#DAA520" />
             
-            {/* Handle Details */}
-            <path d="M18 35 Q14 35 14 42 Q14 48 18 48 L22 48 L22 35 Z" fill="#FFD700" />
-            <path d="M82 35 Q86 35 86 42 Q86 48 82 48 L78 48 L78 35 Z" fill="#FFD700" />
+            {/* Handle Inner Details */}
+            <path d="M22 47 Q17 47 17 55 Q17 63 22 63 L28 63 L28 47 Z" fill="#FFD700" />
+            <path d="M98 47 Q103 47 103 55 Q103 63 98 63 L92 63 L92 47 Z" fill="#FFD700" />
             
-            {/* Champions League Stars Pattern */}
-            <circle cx="50" cy="30" r="2" fill="white" />
-            <circle cx="42" cy="35" r="1.5" fill="white" />
-            <circle cx="58" cy="35" r="1.5" fill="white" />
-            <circle cx="38" cy="42" r="1" fill="white" />
-            <circle cx="62" cy="42" r="1" fill="white" />
-            <circle cx="45" cy="48" r="1" fill="white" />
-            <circle cx="55" cy="48" r="1" fill="white" />
-            <circle cx="40" cy="55" r="1" fill="white" />
-            <circle cx="60" cy="55" r="1" fill="white" />
-            <circle cx="50" cy="62" r="1.5" fill="white" />
+            {/* Decorative Handle Elements */}
+            <circle cx="20" cy="55" r="2" fill="#FFFF00" />
+            <circle cx="100" cy="55" r="2" fill="#FFFF00" />
             
-            {/* Trophy Rim */}
-            <ellipse cx="50" cy="20" rx="25" ry="5" fill="#FFD700" />
-            <ellipse cx="50" cy="18" rx="23" ry="4" fill="#FFFF00" />
+            {/* UEFA Champions League Stars Pattern */}
+            <circle cx="60" cy="35" r="3" fill="white" />
+            <circle cx="48" cy="42" r="2" fill="white" />
+            <circle cx="72" cy="42" r="2" fill="white" />
+            <circle cx="44" cy="52" r="1.5" fill="white" />
+            <circle cx="76" cy="52" r="1.5" fill="white" />
+            <circle cx="52" cy="62" r="1.5" fill="white" />
+            <circle cx="68" cy="62" r="1.5" fill="white" />
+            <circle cx="46" cy="72" r="1" fill="white" />
+            <circle cx="74" cy="72" r="1" fill="white" />
+            <circle cx="60" cy="80" r="2" fill="white" />
             
-            {/* Central Champions Text Area */}
-            <rect x="40" y="38" width="20" height="25" rx="2" fill="rgba(255,255,255,0.3)" />
+            {/* Additional Star Details */}
+            <circle cx="60" cy="48" r="1" fill="white" />
+            <circle cx="54" cy="55" r="0.8" fill="white" />
+            <circle cx="66" cy="55" r="0.8" fill="white" />
+            <circle cx="58" cy="65" r="0.8" fill="white" />
+            <circle cx="62" cy="65" r="0.8" fill="white" />
+            
+            {/* Trophy Rim - Enhanced */}
+            <ellipse cx="60" cy="23" rx="30" ry="6" fill="#FFD700" />
+            <ellipse cx="60" cy="20" rx="28" ry="5" fill="#FFFF00" />
+            <ellipse cx="60" cy="18" rx="26" ry="4" fill="#FFF700" />
+            
+            {/* Central UEFA Logo Area */}
+            <rect x="50" y="45" width="20" height="30" rx="3" fill="rgba(255,255,255,0.4)" />
+            <text x="60" y="58" textAnchor="middle" fontSize="4" fill="#000" fontWeight="bold">UEFA</text>
+            <text x="60" y="68" textAnchor="middle" fontSize="3" fill="#000">CL</text>
           </svg>
           
-          {/* Multiple Shine Effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 animate-pulse"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-10"></div>
+          {/* Multiple Advanced Shine Effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-25 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-transparent opacity-15"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-200 via-transparent to-transparent opacity-20 animate-pulse" style={{animationDelay: '1s'}}></div>
         </div>
       </div>
       
-      {/* Enhanced Glow Effects */}
-      <div className="absolute -inset-6 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 rounded-full opacity-20 animate-pulse-gold"></div>
-      <div className="absolute -inset-3 bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 rounded-full opacity-15 animate-pulse-gold" style={{animationDelay: '0.5s'}}></div>
+      {/* Enhanced Multi-Layer Glow Effects */}
+      <div className="absolute -inset-8 bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 rounded-full opacity-25 animate-pulse-gold"></div>
+      <div className="absolute -inset-6 bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-400 rounded-full opacity-20 animate-pulse-gold" style={{animationDelay: '0.5s'}}></div>
+      <div className="absolute -inset-4 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500 rounded-full opacity-15 animate-pulse-gold" style={{animationDelay: '1s'}}></div>
       
-      {/* Champions Text */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-4">
-        <div className="text-xs font-bold text-yellow-400 tracking-wider">CHAMPIONS</div>
+      {/* Champions Text with Better Typography */}
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-6">
+        <div className="text-sm font-black text-yellow-400 tracking-widest">CHAMPIONS</div>
+        <div className="text-xs font-bold text-yellow-300 tracking-wider text-center mt-1">LEAGUE</div>
       </div>
     </div>
   );

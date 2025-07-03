@@ -183,19 +183,41 @@ export default function Home() {
           </h2>
 
           <div className="grid md:grid-cols-3 gap-6 px-4">
-            <PrizeCard
-              icon={<i className="fas fa-trophy text-2xl text-black"></i>}
-              title="1º LUGAR"
-              description={
-                <div>
-                  <p className="font-semibold mb-2">iPhone 15 (128GB)</p>
-                  <p className="text-gray-300">ou</p>
-                  <p className="text-yellow-400 font-bold text-lg">R$ 3.000,00 no PIX</p>
+            {/* 1º Lugar com Imagem do iPhone */}
+            <div className="relative">
+              <PrizeCard
+                icon={<i className="fas fa-trophy text-2xl text-black"></i>}
+                title="1º LUGAR"
+                description={
+                  <div>
+                    <p className="font-semibold mb-2">iPhone 15 (128GB)</p>
+                    <p className="text-gray-300">ou</p>
+                    <p className="text-yellow-400 font-bold text-lg">R$ 3.000,00 no PIX</p>
+                  </div>
+                }
+                iconBg="bg-gradient-to-r from-yellow-400 to-yellow-600"
+                titleColor="text-yellow-400"
+              />
+              
+              {/* Imagem do iPhone próxima ao 1º lugar */}
+              <div className="absolute -top-4 -right-4 z-10">
+                <div className="relative">
+                  {!prizeImageError ? (
+                    <img
+                      src={prizeImage}
+                      alt="iPhone 15 - Prêmio Principal"
+                      className="w-24 h-32 object-cover rounded-xl shadow-2xl animate-float border-2 border-yellow-400"
+                      onError={handlePrizeImageError}
+                    />
+                  ) : (
+                    <div className="w-24 h-32 bg-gradient-gold rounded-xl shadow-2xl animate-float flex items-center justify-center border-2 border-yellow-400">
+                      <i className="fas fa-mobile-alt text-2xl text-black"></i>
+                    </div>
+                  )}
+                  <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400 to-transparent rounded-xl opacity-30 animate-pulse"></div>
                 </div>
-              }
-              iconBg="bg-gradient-to-r from-yellow-400 to-yellow-600"
-              titleColor="text-yellow-400"
-            />
+              </div>
+            </div>
 
             <PrizeCard
               icon={<i className="fas fa-medal text-2xl text-white"></i>}
@@ -272,9 +294,9 @@ export default function Home() {
               Participe Agora!
             </h3>
 
-            <div className="flex flex-col lg:flex-row gap-8 items-center">
+            <div className="max-w-2xl mx-auto">
               {/* Form Section */}
-              <div className="flex-1 glass-effect rounded-2xl p-8 w-full border-white/20">
+              <div className="glass-effect rounded-2xl p-8 w-full border-white/20">
                 <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); finalizarViaWhatsApp(); }}>
                   <div>
                     <Label className="text-gray-300 text-sm font-medium mb-2 flex items-center">
@@ -360,25 +382,6 @@ export default function Home() {
                     <i className="fab fa-whatsapp mr-2"></i>Finalizar via WhatsApp
                   </Button>
                 </form>
-              </div>
-
-              {/* Prize Image */}
-              <div className="flex-shrink-0">
-                <div className="relative">
-                  {!prizeImageError ? (
-                    <img
-                      src={prizeImage}
-                      alt="iPhone 15 - Prêmio Principal"
-                      className="w-64 h-80 object-cover rounded-2xl shadow-2xl animate-float"
-                      onError={handlePrizeImageError}
-                    />
-                  ) : (
-                    <div className="w-64 h-80 bg-gradient-gold rounded-2xl shadow-2xl animate-float flex items-center justify-center">
-                      <i className="fas fa-mobile-alt text-6xl text-black"></i>
-                    </div>
-                  )}
-                  <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 to-transparent rounded-2xl opacity-30 animate-pulse"></div>
-                </div>
               </div>
             </div>
           </div>
