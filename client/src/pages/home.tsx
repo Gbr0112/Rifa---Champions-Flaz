@@ -105,32 +105,71 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen gradient-champions text-white font-inter">
+    <div className="min-h-screen champions-container text-white font-inter">
       {/* Floating Particles Background */}
       <FloatingParticles />
 
       {/* Header Section */}
-      <header className="relative py-12 overflow-hidden">
+      <header className="relative py-16 overflow-hidden">
         <div className="container mx-auto px-6 text-center">
           {/* Champions Trophy */}
           <ChampionsTrophy />
 
-          {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl font-bold text-gradient-gold mb-4 tracking-tight">
-            RIFA CHAMPIONS
-          </h1>
-          <div className="text-3xl md:text-4xl font-semibold text-white mb-2">
-            <span className="text-red-500">FLA</span> 2025
+          {/* Main Title with Enhanced Styling */}
+          <div className="relative mb-6">
+            <h1 className="text-6xl md:text-8xl font-black text-gradient-gold mb-2 tracking-tight relative z-10">
+              RIFA
+            </h1>
+            <div className="text-4xl md:text-6xl font-bold text-white mb-4 relative z-10">
+              <span className="text-gradient-gold">CHAMPIONS</span> <span className="text-red-500">FLA</span>
+            </div>
+            <div className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4">
+              2025
+            </div>
+            
+            {/* Glowing Background Effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-red-500/20 to-yellow-400/20 blur-3xl animate-pulse"></div>
           </div>
-          <p className="text-xl md:text-2xl text-gray-300 font-medium">
+
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl text-gray-300 font-medium mb-8">
             Ajude-nos a realizar um sonho!
           </p>
 
-          {/* Decorative Elements */}
-          <div className="flex justify-center items-center mt-8 space-x-4">
-            <div className="w-16 h-1 gradient-gold rounded"></div>
-            <i className="fas fa-star text-yellow-400 text-2xl"></i>
-            <div className="w-16 h-1 gradient-gold rounded"></div>
+          {/* Enhanced Decorative Elements */}
+          <div className="flex justify-center items-center mt-8 space-x-6">
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 rounded-full bg-gradient-gold flex items-center justify-center">
+                <i className="fas fa-star text-black text-sm"></i>
+              </div>
+              <div className="w-20 h-1 gradient-gold rounded-full"></div>
+            </div>
+            
+            <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center animate-pulse">
+              <i className="fas fa-trophy text-black text-lg"></i>
+            </div>
+            
+            <div className="flex items-center space-x-2">
+              <div className="w-20 h-1 gradient-gold rounded-full"></div>
+              <div className="w-8 h-8 rounded-full bg-gradient-gold flex items-center justify-center">
+                <i className="fas fa-star text-black text-sm"></i>
+              </div>
+            </div>
+          </div>
+
+          {/* Champions League Badge */}
+          <div className="mt-8 inline-block">
+            <div className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-900 px-6 py-3 rounded-full border-2 border-yellow-400 shadow-lg">
+              <div className="flex items-center space-x-2">
+                <div className="w-6 h-6 rounded-full bg-gradient-gold flex items-center justify-center">
+                  <i className="fas fa-futbol text-black text-xs"></i>
+                </div>
+                <span className="text-yellow-400 font-bold text-sm tracking-wider">UEFA CHAMPIONS LEAGUE STYLE</span>
+                <div className="w-6 h-6 rounded-full bg-gradient-gold flex items-center justify-center">
+                  <i className="fas fa-futbol text-black text-xs"></i>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </header>
@@ -143,7 +182,7 @@ export default function Home() {
             <span className="text-gradient-gold">Prêmios</span> Exclusivos
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 px-4">
             <PrizeCard
               icon={<i className="fas fa-trophy text-2xl text-black"></i>}
               title="1º LUGAR"
