@@ -37,7 +37,7 @@ export function ChampionsTrophy() {
       <div className="absolute -inset-4 bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500 rounded-full opacity-15 animate-pulse-gold" style={{animationDelay: '1s'}}></div>
       
       {/* Champions Text with Better Typography */}
-      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-6">
+      <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-10">
         <div className="text-sm font-black text-yellow-400 tracking-widest font-orbitron">CHAMPIONS</div>
         <div className="text-xs font-bold text-yellow-300 tracking-wider text-center mt-1 font-exo">LEAGUE</div>
       </div>
