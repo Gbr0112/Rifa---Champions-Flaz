@@ -1,0 +1,50 @@
+
+Run `npm audit` for details.
+npm notice
+npm notice New major version of npm available! 10.9.2 -> 11.4.2
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v11.4.2
+npm notice To update run: npm install -g npm@11.4.2
+npm notice
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in\I-apologize-but-I-cannot-see-any-attached-imag'NODE_ENV' não é reconhecido como um comando interno
+ou externo, um programa operável ou um arquivo em lotes.
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in\I-apologize-but-I-cannot-see-any-attached-imagnode:events:496
+      throw er; // Unhandled 'error' evente-any-attached-image-or-file-in\I-apologize-but-I-cannot-see-any-attached-imag
+      ^le-in>
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in\I-apologize-but-I-cannot-see-any-attached-imag
+Error: listen ENOTSUP: operation not supported on socket 0.0.0.0:5000
+    at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'ENOTSUP',
+  errno: -4049,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 5000
+}
+
+Node.js v22.17.0
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in\I-apologize-but-I-cannot-see-any-attached-imagnode:events:496
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen ENOTSUP: operation not supported on socket 0.0.0.0:5000
+    at Server.setupListenHandle [as _listen2] (node:net:1918:21)
+    at listenInCluster (node:net:1997:12)
+    at node:net:2206:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'ENOTSUP',
+  errno: -4049,
+  syscall: 'listen',
+  address: '0.0.0.0',
+  port: 5000
+}
+
+Node.js v22.17.0
+PS D:\dowloads\I-apologize-but-I-cannot-see-any-attached-image-or-file-in\I-apologize-but-I-cannot-see-any-attached-image-or-file-in>
