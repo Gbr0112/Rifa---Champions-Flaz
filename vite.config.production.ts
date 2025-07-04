@@ -1,18 +1,16 @@
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import path from "path";
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import path from "path"
 
 export default defineConfig({
+  root: "client", // 👈 aponta a raiz para a pasta client
   plugins: [react()],
-  root: ".",
-  publicDir: "attached_assets",
+  publicDir: "../attached_assets", // 👈 pasta de assets fora de client
   build: {
-    outDir: "dist",
+    outDir: "../dist", // 👈 saída do build volta para a raiz
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, "index.html"),
-      },
+      input: path.resolve(__dirname, "client/index.html"), // 👈 usa o index da client
     },
   },
   resolve: {
@@ -22,4 +20,4 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "attached_assets"),
     },
   },
-});
+})
