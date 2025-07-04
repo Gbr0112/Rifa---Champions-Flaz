@@ -17,29 +17,30 @@ export default function Home() {
   const [prizeImage, setPrizeImage] = useState(iphoneImage);
   const [prizeImageError, setPrizeImageError] = useState(false);
   const { toast } = useToast();
-  
- const rawPixCode = "00020126810014br.gov.bcb.pix013609dc3b10-e836-4412-a137-41dff474a70b0219Rifa Champions Fla27600016BR.COM.PAGSEGURO01366A005F18-7F32-4B45-810F-13FF13E07131520489995303986540515.005802BR5922Lucia Pereira da Silva6006Cuiaba62290525PAGS00000150025070316119163045D50";
 
-// Para o QR code na imagem:
-const pixCodeEncoded = encodeURIComponent(rawPixCode);
+  const rawPixCode =
+    "00020126810014br.gov.bcb.pix013609dc3b10-e836-4412-a137-41dff474a70b0219Rifa Champions Fla27600016BR.COM.PAGSEGURO01366A005F18-7F32-4B45-810F-13FF13E07131520489995303986540515.005802BR5922Lucia Pereira da Silva6006Cuiaba62290525PAGS00000150025070316119163045D50";
 
-// Copiar com botão:
-const copiarPix = async () => {
-  try {
-    await navigator.clipboard.writeText(rawPixCode); // <- com espaços normais
-    toast({
-      title: "Chave PIX copiada!",
-      description: "A chave PIX foi copiada para sua área de transferência.",
-    });
-  } catch (error) {
-    toast({
-      title: "Erro",
-      description: "Não foi possível copiar a chave PIX.",
-      variant: "destructive",
-    });
-  }
-};
-  
+  // Para o QR code na imagem:
+  const pixCodeEncoded = encodeURIComponent(rawPixCode);
+
+  // Copiar código PIX
+  const copiarPix = async () => {
+    try {
+      await navigator.clipboard.writeText(rawPixCode);
+      toast({
+        title: "Chave PIX copiada!",
+        description: "A chave PIX foi copiada para sua área de transferência.",
+      });
+    } catch (error) {
+      toast({
+        title: "Erro",
+        description: "Não foi possível copiar a chave PIX.",
+        variant: "destructive",
+      });
+    }
+  };
+
   const validarCampos = () => {
     return (
       nome.trim() !== "" &&
@@ -75,26 +76,12 @@ const copiarPix = async () => {
     }
   }, [nome, telefone]);
 
-  const copiarPix = async () => {
-    try {
-      await navigator.clipboard.writeText(pixCode);
-      toast({
-        title: "Chave PIX copiada!",
-        description: "A chave PIX foi copiada para sua área de transferência.",
-      });
-    } catch (error) {
-      toast({
-        title: "Chave PIX copiada!",
-        description: "A chave PIX foi copiada com sucesso.",
-      });
-    }
-  };
-
   const confirmarPagamento = () => {
     if (!validarCampos()) {
       toast({
         title: "Erro",
-        description: "Por favor, preencha todos os campos corretamente antes de confirmar o pagamento.",
+        description:
+          "Por favor, preencha todos os campos corretamente antes de confirmar o pagamento.",
         variant: "destructive",
       });
       return;
@@ -112,12 +99,10 @@ const copiarPix = async () => {
       return;
     }
 
-    const mensagem = encodeURIComponent(
-      Olá! Quero participar da Rifa Champions Fla 2025.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!
-    );
+    const mensagem = encodeURIComponent(`Olá! Quero participar da Rifa Champions Fla 2025.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!`);
 
     const numeroWhats = "5565992501914";
-    const url = https://wa.me/${numeroWhats}?text=${mensagem};
+    const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
     window.open(url, "_blank");
   };
 
@@ -142,20 +127,33 @@ const copiarPix = async () => {
               RIFA
             </h1>
             <div className="text-4xl md:text-6xl font-bold text-white mb-4 relative z-10 font-exo">
-              <span className="text-gradient-gold">CHAMPIONS</span> <span className="text-red-500">FLA</span>
+              <span className="text-gradient-gold">CHAMPIONS</span>{" "}
+              <span className="text-red-500">FLA</span>
             </div>
             <div className="text-2xl md:text-3xl font-semibold text-yellow-400 mb-4 font-orbitron tracking-widest">
               2025
             </div>
-            
+
             {/* Enhanced Glowing Background Effects */}
             <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-red-500/20 to-yellow-400/20 blur-3xl animate-pulse"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-yellow-300/10 via-transparent to-red-400/10 blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
-            
+            <div
+              className="absolute inset-0 bg-gradient-to-b from-yellow-300/10 via-transparent to-red-400/10 blur-2xl animate-pulse"
+              style={{ animationDelay: "1s" }}
+            ></div>
+
             {/* Sparkle Effects */}
-            <div className="absolute top-0 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-70" style={{animationDelay: '0.5s'}}></div>
-            <div className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-pulse opacity-80" style={{animationDelay: '1.5s'}}></div>
-            <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse opacity-60" style={{animationDelay: '2s'}}></div>
+            <div
+              className="absolute top-0 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-70"
+              style={{ animationDelay: "0.5s" }}
+            ></div>
+            <div
+              className="absolute top-1/3 right-1/4 w-1 h-1 bg-white rounded-full animate-pulse opacity-80"
+              style={{ animationDelay: "1.5s" }}
+            ></div>
+            <div
+              className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse opacity-60"
+              style={{ animationDelay: "2s" }}
+            ></div>
           </div>
 
           {/* Subtitle */}
@@ -171,11 +169,11 @@ const copiarPix = async () => {
               </div>
               <div className="w-20 h-1 gradient-gold rounded-full"></div>
             </div>
-            
+
             <div className="w-12 h-12 rounded-full bg-gradient-gold flex items-center justify-center animate-pulse">
               <i className="fas fa-trophy text-black text-lg"></i>
             </div>
-            
+
             <div className="flex items-center space-x-2">
               <div className="w-20 h-1 gradient-gold rounded-full"></div>
               <div className="w-8 h-8 rounded-full bg-gradient-gold flex items-center justify-center">
@@ -191,7 +189,9 @@ const copiarPix = async () => {
                 <div className="w-6 h-6 rounded-full bg-gradient-gold flex items-center justify-center">
                   <i className="fas fa-futbol text-black text-xs"></i>
                 </div>
-                <span className="text-yellow-400 font-bold text-sm tracking-wider">UEFA CHAMPIONS LEAGUE STYLE</span>
+                <span className="text-yellow-400 font-bold text-sm tracking-wider">
+                  UEFA CHAMPIONS LEAGUE STYLE
+                </span>
                 <div className="w-6 h-6 rounded-full bg-gradient-gold flex items-center justify-center">
                   <i className="fas fa-futbol text-black text-xs"></i>
                 </div>
@@ -283,7 +283,9 @@ const copiarPix = async () => {
                     <i className="fas fa-map-marker-alt text-yellow-400 mr-3"></i>
                     <div>
                       <span className="text-gray-300">Local:</span>
-                      <span className="text-white font-bold ml-2">Rua Maurício Cardoso nº122, Cidade Alta - Cuiabá/MT</span>
+                      <span className="text-white font-bold ml-2">
+                        Rua Maurício Cardoso nº122, Cidade Alta - Cuiabá/MT
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -302,7 +304,13 @@ const copiarPix = async () => {
             <div className="flex flex-col lg:flex-row gap-8 items-center">
               {/* Form Section */}
               <div className="flex-1 glass-effect rounded-2xl p-8 w-full border-white/20">
-                <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); finalizarViaWhatsApp(); }}>
+                <form
+                  className="space-y-6"
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    finalizarViaWhatsApp();
+                  }}
+                >
                   <div>
                     <Label className="text-gray-300 text-sm font-medium mb-2 flex items-center">
                       <i className="fas fa-user mr-2"></i>Nome Completo
@@ -341,11 +349,9 @@ const copiarPix = async () => {
                       <div className="text-center mb-4">
                         <div className="inline-block p-4 bg-white rounded-lg">
                           <img
-                             <img
-                               src={https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${pixCodeEncoded}}
-                               alt="QR Code PIX"
-                               className="w-48 h-48 mx-auto"
-                               />
+                            src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${pixCodeEncoded}`}
+                            alt="QR Code PIX"
+                            className="w-48 h-48 mx-auto"
                           />
                         </div>
                       </div>
@@ -353,7 +359,7 @@ const copiarPix = async () => {
                       <div className="bg-gray-800/50 rounded-lg p-4 mb-4">
                         <div className="flex items-center justify-between flex-wrap gap-4">
                           <span className="text-sm text-gray-300 truncate flex-1 min-w-0">
-                            {pixCode}
+                            {rawPixCode}
                           </span>
                           <Button
                             type="button"
@@ -369,14 +375,20 @@ const copiarPix = async () => {
                         type="button"
                         onClick={confirmarPagamento}
                         disabled={paymentConfirmed}
-                        className={w-full py-3 font-semibold transition-all duration-300 mb-4 ${
+                        className={`w-full py-3 font-semibold transition-all duration-300 mb-4 ${
                           paymentConfirmed
                             ? "bg-green-600 hover:bg-green-600"
                             : "gradient-red hover:opacity-90"
-                        }}
+                        }`}
                       >
-                        <i className={fas ${paymentConfirmed ? "fa-check-circle" : "fa-check"} mr-2}></i>
-                        {paymentConfirmed ? "Pagamento Confirmado!" : "Já realizei o pagamento"}
+                        <i
+                          className={`fas ${
+                            paymentConfirmed ? "fa-check-circle" : "fa-check"
+                          } mr-2`}
+                        ></i>
+                        {paymentConfirmed
+                          ? "Pagamento Confirmado!"
+                          : "Já realizei o pagamento"}
                       </Button>
                     </div>
                   )}
