@@ -1,5 +1,5 @@
 import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { dirname } from 'path';
 import express from 'express';
 import serverless from 'serverless-http';
 import { registerRoutes } from '../../server/routes.js';
@@ -11,7 +11,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Register API routes
-await registerRoutes(app);
+async function createApp() {
+  await registerRoutes(app);
+  return app;
+}
 
-export const handler = serverless(app);
+// exporta o handler que aguarda o app criado e inicializado
+export const handler = async (event, context) => {
+  const initializedApp = await createApp();
+  const serverlessHandler = serverless(initializedApp);
+  return serverlessHandler(event, context);
+};
