@@ -356,15 +356,14 @@ export default function Home() {
                            {paymentConfirmed ? "Pagamento Confirmado!" : "Já realizei o pagamento"}
                          </Button>
                          
-                         {paymentConfirmed && (
-                      <div className="p-4 text-sm rounded border border-green-600 bg-green-100 text-green-800">
-                        <strong>⚠️Atenção:</strong> O pedido será registrado somente após a confirmação do pagamento via PIX.
-                        Por favor, envie o comprovante para garantir a validação do seu pedido.
-                      </div>
-                    )}
+                        {paymentConfirmed && ( <div className="mt-2 p-4 text-sm rounded border border-green-600 bg-green-100 text-green-800">
+                          <strong>⚠️ Atenção:</strong> O pedido será registrado somente após a confirmação do pagamento via PIX.
+                          Por favor, envie o comprovante para garantir a validação do seu pedido.
+                        </div>
+                                             )}
                        </div>
                   )}
-
+                        
                   <Button
                     type="submit"
                     disabled={!paymentConfirmed}
