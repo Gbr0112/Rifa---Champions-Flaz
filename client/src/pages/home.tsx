@@ -17,9 +17,29 @@ export default function Home() {
   const [prizeImage, setPrizeImage] = useState(iphoneImage);
   const [prizeImageError, setPrizeImageError] = useState(false);
   const { toast } = useToast();
+  
+ const rawPixCode = "00020126810014br.gov.bcb.pix013609dc3b10-e836-4412-a137-41dff474a70b0219Rifa Champions Fla27600016BR.COM.PAGSEGURO01366A005F18-7F32-4B45-810F-13FF13E07131520489995303986540515.005802BR5922Lucia Pereira da Silva6006Cuiaba62290525PAGS00000150025070316119163045D50";
 
-  const pixCode = "00020126810014br.gov.bcb.pix013609dc3b10-e836-4412-a137-41dff474a70b0219RifaChampionsFla27600016BR.COM.PAGSEGURO01366A005F18-7F32-4B45-810F-13FF13E07131520489995303986540515.005802BR5922Lucia%20Pereira%20da%20Silva6006Cuiaba62290525PAGS00000150025070316119163045D50";
+// Para o QR code na imagem:
+const pixCodeEncoded = encodeURIComponent(rawPixCode);
 
+// Copiar com botão:
+const copiarPix = async () => {
+  try {
+    await navigator.clipboard.writeText(rawPixCode); // <- com espaços normais
+    toast({
+      title: "Chave PIX copiada!",
+      description: "A chave PIX foi copiada para sua área de transferência.",
+    });
+  } catch (error) {
+    toast({
+      title: "Erro",
+      description: "Não foi possível copiar a chave PIX.",
+      variant: "destructive",
+    });
+  }
+};
+  
   const validarCampos = () => {
     return (
       nome.trim() !== "" &&
