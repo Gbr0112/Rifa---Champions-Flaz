@@ -18,7 +18,7 @@ export default function Home() {
   const [prizeImageError, setPrizeImageError] = useState(false);
   const { toast } = useToast();
 
-  const pixCode = "00020126810014br.gov.bcb.pix013609dc3b10-e836-4412-a137-41dff474a70b0219Rifa Champions Fla27600016BR.COM.PAGSEGURO01366A005F18-7F32-4B45-810F-13FF13E07131520489995303986540515.005802BR5922Lucia Pereira da Silva6006Cuiaba62290525PAGS00000150025070316119163045D50";
+  const pixCode = "00020126810014br.gov.bcb.pix013609dc3b10-e836-4412-a137-41dff474a70b0219RifaChampionsFla27600016BR.COM.PAGSEGURO01366A005F18-7F32-4B45-810F-13FF13E07131520489995303986540515.005802BR5922Lucia%20Pereira%20da%20Silva6006Cuiaba62290525PAGS00000150025070316119163045D50";
 
   const validarCampos = () => {
     return (
@@ -93,11 +93,11 @@ export default function Home() {
     }
 
     const mensagem = encodeURIComponent(
-      Olá! Quero participar da Rifa Champions Fla 2025.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!
+      `Olá! Quero participar da Rifa Champions Fla 2025.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!`
     );
 
     const numeroWhats = "5565992501914";
-    const url = https://wa.me/${numeroWhats}?text=${mensagem};
+    const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
     window.open(url, "_blank");
   };
 
@@ -321,7 +321,7 @@ export default function Home() {
                       <div className="text-center mb-4">
                         <div className="inline-block p-4 bg-white rounded-lg">
                           <img
-                            src={https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${pixCode}}
+                            src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${pixCode}`}
                             alt="QR Code PIX"
                             className="w-48 h-48 mx-auto"
                           />
@@ -341,29 +341,24 @@ export default function Home() {
                             <i className="fas fa-copy mr-1"></i>Copiar
                           </Button>
                         </div>
-                       <div>
-                         <Button
-                           type="button"
-                           onClick={confirmarPagamento}
-                           disabled={paymentConfirmed}
-                           className={w-full py-3 font-semibold transition-all duration-300 mb-4 ${
-                             paymentConfirmed
-                             ? "bg-green-600 hover:bg-green-600"
-                             : "gradient-red hover:opacity-90"
-                           }}
-                           >
-                           <i className={fas ${paymentConfirmed ? "fa-check-circle" : "fa-check"} mr-2}></i>
-                           {paymentConfirmed ? "Pagamento Confirmado!" : "Já realizei o pagamento"}
-                         </Button>
-                         
-                        {paymentConfirmed && ( <div className="mt-2 p-4 text-sm rounded border border-green-600 bg-green-100 text-green-800">
-                          <strong>⚠️ Atenção:</strong> O pedido será registrado somente após a confirmação do pagamento via PIX.
-                          Por favor, envie o comprovante para garantir a validação do seu pedido.
-                        </div>
-                                             )}
-                       </div>
+                      </div>
+
+                      <Button
+                        type="button"
+                        onClick={confirmarPagamento}
+                        disabled={paymentConfirmed}
+                        className={`w-full py-3 font-semibold transition-all duration-300 mb-4 ${
+                          paymentConfirmed
+                            ? "bg-green-600 hover:bg-green-600"
+                            : "gradient-red hover:opacity-90"
+                        }`}
+                      >
+                        <i className={`fas ${paymentConfirmed ? "fa-check-circle" : "fa-check"} mr-2`}></i>
+                        {paymentConfirmed ? "Pagamento Confirmado!" : "Já realizei o pagamento"}
+                      </Button>
+                    </div>
                   )}
-                        
+
                   <Button
                     type="submit"
                     disabled={!paymentConfirmed}
