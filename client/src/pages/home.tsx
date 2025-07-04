@@ -70,17 +70,22 @@ export default function Home() {
     }
   };
 
-  const confirmarPagamento = () => {
-    if (!validarCampos()) {
-      toast({
-        title: "Erro",
-        description: "Por favor, preencha todos os campos corretamente antes de confirmar o pagamento.",
-        variant: "destructive",
-      });
-      return;
-    }
-    setPaymentConfirmed(true);
-  };
+const confirmarPagamento = () => {
+  if (!validarCampos()) {
+    toast({
+      title: "Erro",
+      description: "Por favor, preencha todos os campos corretamente antes de confirmar o pagamento.",
+      variant: "destructive",
+    });
+    return;
+  }
+  setPaymentConfirmed(true);
+
+  toast({
+    title: "Pagamento confirmado!",
+    description: "Não esqueça de enviar o comprovante para validar seu pedido.",
+  });
+};
 
   const finalizarViaWhatsApp = () => {
     if (!validarCampos()) {
