@@ -71,46 +71,46 @@ export default function Home() {
     }
   };
 
-  const confirmarPagamento = () => {
-    if (!validarCampos()) {
-      toast({
-        title: "Erro",
-        description: "Por favor, preencha todos os campos corretamente antes de confirmar o pagamento.",
-        variant: "destructive",
-      });
-      return;
-    }
-    setPaymentConfirmed(true);
+ const confirmarPagamento = () => {
+  if (!validarCampos()) {
     toast({
-      title: "Pagamento marcado como confirmado!",
-      description: "Agora finalize sua inscrição pelo WhatsApp.",
+      title: "Erro",
+      description: "Por favor, preencha todos os campos corretamente antes de confirmar o pagamento.",
+      variant: "destructive",
     });
-  };
+    return;
+  }
+  setPaymentConfirmed(true);
+
+  toast({
+    title: "Pagamento confirmado",
+    description: "Não esqueça de enviar o comprovante para validar seu pedido.",
+  });
+};
 
   const finalizarViaWhatsApp = () => {
-    if (!validarCampos()) {
-      toast({
-        title: "Erro",
-        description: "Por favor, preencha todos os campos corretamente.",
-        variant: "destructive",
-      });
-      return;
-    }
-    if (!paymentConfirmed) {
-      toast({
-        title: "Confirmação necessária",
-        description: "Você precisa marcar o pagamento como confirmado antes de prosseguir.",
-        variant: "destructive",
-      });
-      return;
-    }
-    const mensagem = encodeURIComponent(
-      `Olá! Quero participar da Rifa Champions Fla 2025.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!`
-    );
-    const numeroWhats = "5565992501914";
-    const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
-    window.open(url, "_blank");
-  };
+  if (!validarCampos()) {
+    toast({
+      title: "Erro",
+      description: "Por favor, preencha todos os campos corretamente.",
+      variant: "destructive",
+    });
+    return;
+  }
+
+  toast({
+    title: "Pedido enviado",
+    description: "Estamos encaminhando suas informações para o WhatsApp.",
+  });
+
+  const mensagem = encodeURIComponent(
+    `Olá! Quero participar da Rifa Champions Fla 2025.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!`
+  );
+
+  const numeroWhats = "5565992501914";
+  const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
+  window.open(url, "_blank");
+};
 
   const handlePrizeImageError = () => {
     setPrizeImageError(true);
