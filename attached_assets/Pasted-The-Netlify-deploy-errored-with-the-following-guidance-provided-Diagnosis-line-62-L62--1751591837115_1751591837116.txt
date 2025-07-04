@@ -1,0 +1,79 @@
+The Netlify deploy errored, with the following guidance provided:
+
+### Diagnosis
+[line 62](#L62): The build failed with a non-zero exit code due to a specific error.
+[line 66](#L66): The error "Could not resolve entry module 'client/index.html'" indicates that the entry module specified in the build script is not found.
+
+### Solution
+The error "Could not resolve entry module 'client/index.html'" suggests that the entry module specified in the build script is incorrect or missing. To resolve this issue, follow these steps:
+
+1. Verify that the entry module 'client/index.html' exists in the correct location in your project.
+2. Update the configuration in the build script to point to the correct entry module.
+
+If the file `client/index.html` is missing or referenced incorrectly, ensure it exists in your repository. If it does exist, update the build script or configuration to reference the correct path for the entry module.
+
+The relevant error logs are:
+
+Line 0: build-image version: 454348036fe6ba392813d99eb00e96b3425609e0 (noble)
+Line 1: buildbot version: 454348036fe6ba392813d99eb00e96b3425609e0
+Line 2: Fetching cached dependencies
+Line 3: Failed to fetch cache, continuing with build
+Line 4: Starting to prepare the repo for build
+Line 5: No cached dependencies found. Cloning fresh repo
+Line 6: git clone --filter=blob:none https://github.com/Gbr0112/Rifa---Fla
+Line 7: Preparing Git Reference refs/heads/main
+Line 8: Starting to install dependencies
+Line 9: Using PHP version
+Line 10: Downloading and installing node v18.20.8...
+Line 11: Downloading https://nodejs.org/dist/v18.20.8/node-v18.20.8-linux-x64.tar.xz...
+Line 12: Computing checksum with sha256sum
+Line 13: Checksums matched!
+Line 52: [36m[1m❯ Context[22m[39m
+Line 53:   production
+Line 54: [96m[1m​[22m[39m
+Line 55: [96m[1mbuild.command from netlify.toml                               [22m[39m
+Line 56: [96m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 57: ​
+Line 58: [36m$ npm run build[39m
+Line 59: > rest-express@1.0.0 build
+Line 60: > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+Line 61: [36mvite v5.4.19 [32mbuilding for production...[36m[39m
+Line 62: Failed during stage 'building site': Build script returned non-zero exit code: 2
+Line 63: [32m✓[39m 0 modules transformed.
+Line 64: [31mx[39m Build failed in 7ms
+Line 65: [31merror during build:
+Line 66: [31mCould not resolve entry module "client/index.html".[31m
+Line 67:     at getRollupError (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:396:41)
+Line 68:     at error (file:///opt/build/repo/node_modules/rollup/dist/es/shared/parseAst.js:392:42)
+Line 69:     at ModuleLoader.loadEntryModule (file:///opt/build/repo/node_modules/rollup/dist/es/shared/node-entry.js:20086:20)
+Line 70:     at async Promise.all (index 0)[39m
+Line 71: [91m[1m​[22m[39m
+Line 72: [91m[1m"build.command" failed                                        [22m[39m
+Line 73: [91m[1m────────────────────────────────────────────────────────────────[22m[39m
+Line 74: ​
+Line 75:   [31m[1mError message[22m[39m
+Line 76:   Command failed with exit code 1: npm run build
+Line 77: ​
+Line 78:   [31m[1mError location[22m[39m
+Line 79:   In build.command from netlify.toml:
+Line 80:   npm run build
+Line 81: ​
+Line 82:   [31m[1mResolved config[22m[39m
+Line 83:   build:
+Line 84:     command: npm run build
+Line 85:     commandOrigin: config
+Line 86:     environment:
+Line 87:       - NODE_VERSION
+Line 88:     publish: /opt/build/repo/dist
+Line 89:     publishOrigin: config
+Line 90:   functionsDirectory: /opt/build/repo/netlify/functions
+Line 91:   redirects:
+Line 92:     - from: /api/*
+      status: 200
+      to: /.netlify/functions/:splat
+    - from: /*
+      status: 200
+      to: /index.html
+Line 93: Build failed due to a user error: Build script returned non-zero exit code: 2
+Line 94: Failing build: Failed to build site
+Line 95: Finished processing build request in 21.8s
