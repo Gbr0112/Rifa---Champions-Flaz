@@ -341,22 +341,28 @@ export default function Home() {
                             <i className="fas fa-copy mr-1"></i>Copiar
                           </Button>
                         </div>
-                      </div>
+                       <div>
+  <Button
+    type="button"
+    onClick={confirmarPagamento}
+    disabled={paymentConfirmed}
+    className={`w-full py-3 font-semibold transition-all duration-300 mb-4 ${
+      paymentConfirmed
+        ? "bg-green-600 hover:bg-green-600"
+        : "gradient-red hover:opacity-90"
+    }`}
+  >
+    <i className={`fas ${paymentConfirmed ? "fa-check-circle" : "fa-check"} mr-2`}></i>
+    {paymentConfirmed ? "Pagamento Confirmado!" : "Já realizei o pagamento"}
+  </Button>
 
-                      <Button
-                        type="button"
-                        onClick={confirmarPagamento}
-                        disabled={paymentConfirmed}
-                        className={`w-full py-3 font-semibold transition-all duration-300 mb-4 ${
-                          paymentConfirmed
-                            ? "bg-green-600 hover:bg-green-600"
-                            : "gradient-red hover:opacity-90"
-                        }`}
-                      >
-                        <i className={`fas ${paymentConfirmed ? "fa-check-circle" : "fa-check"} mr-2`}></i>
-                        {paymentConfirmed ? "Pagamento Confirmado!" : "Já realizei o pagamento"}
-                      </Button>
-                    </div>
+  {paymentConfirmed && (
+    <div className="p-4 text-sm rounded border border-green-600 bg-green-100 text-green-800">
+      <strong>Atenção:</strong> O pedido será registrado somente após a confirmação do pagamento via PIX.
+      Por favor, envie o comprovante para garantir a validação do seu pedido.
+    </div>
+  )}
+</div>
                   )}
 
                   <Button
