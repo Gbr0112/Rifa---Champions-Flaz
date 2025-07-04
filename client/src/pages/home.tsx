@@ -82,30 +82,34 @@ const confirmarPagamento = () => {
   setPaymentConfirmed(true);
 
   toast({
-    title: "Pagamento confirmado!",
-    description: "Não esqueça de enviar o comprovante para validar seu pedido.",
+    title: "🥳Pagamento confirmado!",
+    description: "⚠️Não esqueça de enviar o comprovante para validar seu pedido.",
   });
 };
 
-  const finalizarViaWhatsApp = () => {
-    if (!validarCampos()) {
-      toast({
-        title: "Erro",
-        description: "Por favor, preencha todos os campos corretamente.",
-        variant: "destructive",
-      });
-      return;
-    }
+const finalizarViaWhatsApp = () => {
+  if (!validarCampos()) {
+    toast({
+      title: "Erro",
+      description: "Por favor, preencha todos os campos corretamente.",
+      variant: "destructive",
+    });
+    return;
+  }
 
-    const mensagem = encodeURIComponent(
-      `Olá! Quero participar da Rifa Champions Fla 2025.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!`
-    );
+  toast({
+    title: "Enviando...",
+    description: "Suas informações estão sendo encaminhadas para o WhatsApp.🏆",
+  });
 
-    const numeroWhats = "5565992501914";
-    const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
-    window.open(url, "_blank");
-  };
+  const mensagem = encodeURIComponent(
+    `Olá! Quero participar da Rifa Champions Fla 2025⚽.\n\nNome: ${nome.trim()}\nTelefone: ${telefone.trim()}\n\nPagamento realizado via PIX!`
+  );
 
+  const numeroWhats = "5565992501914";
+  const url = `https://wa.me/${numeroWhats}?text=${mensagem}`;
+  window.open(url, "_blank");
+};
   const handlePrizeImageError = () => {
     setPrizeImageError(true);
   };
