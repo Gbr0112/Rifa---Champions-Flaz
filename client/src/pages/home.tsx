@@ -321,7 +321,7 @@ export default function Home() {
                       <div className="text-center mb-4">
                         <div className="inline-block p-4 bg-white rounded-lg">
                           <img
-                            src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${pixCode}`}
+                             src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(pixCode)}`}
                             alt="QR Code PIX"
                             className="w-48 h-48 mx-auto"
                           />
